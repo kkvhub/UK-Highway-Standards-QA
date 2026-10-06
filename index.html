@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Highway Design Standards Q&amp;A</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<style>
+:root{
+  --b900:#0a1f3d; --b800:#102c57; --b700:#17407a; --b600:#1f55a0; --b500:#2f6fbd; --b400:#5a97d6;
+  --b300:#9cc2eb; --b200:#cfe1f5; --b100:#e6f0fb; --b50:#f3f8fd;
+  --ink:#0f2442; --ink2:#425a7c; --line:#d3e1f2; --bg:#eaf2fb; --white:#fff;
+  --shadow:0 1px 2px rgba(10,31,61,.06),0 6px 20px rgba(10,31,61,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+header.top{background:linear-gradient(120deg,var(--b900),var(--b700) 70%,var(--b600));color:#fff;padding:18px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.14);display:grid;place-items:center;border:1px solid rgba(255,255,255,.25)}
+.logo svg{width:24px;height:24px}
+header h1{margin:0;font-size:20px;letter-spacing:.2px;font-weight:650}
+header .sub{font-size:13px;color:var(--b200);margin-top:1px}
+header .stats{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:99px;font-size:12.5px;color:#fff}
+.layout{display:grid;grid-template-columns:292px minmax(0,1fr);gap:22px;max-width:1380px;margin:0 auto;padding:22px 24px 60px}
+aside{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px}
+aside h3{margin:0 0 8px;font-size:12px;letter-spacing:.9px;text-transform:uppercase;color:var(--b600)}
+.grp{margin:0 0 14px}
+.grp .gh{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--b800);margin-bottom:4px}
+.grp .gh button{border:0;background:none;color:var(--b500);font-size:12px;cursor:pointer;padding:0}
+.doc{display:flex;gap:8px;align-items:flex-start;padding:4px 6px;border-radius:7px;font-size:13px;cursor:pointer}
+.doc:hover{background:var(--b50)}
+.doc input{margin-top:3px;accent-color:var(--b600)}
+.doc b{color:var(--b700);font-weight:650;white-space:nowrap}
+.doc span{color:var(--ink2)}
+.doc em{margin-left:auto;font-style:normal;color:var(--b400);font-size:11.5px}
+.opt{border-top:1px solid var(--line);padding-top:12px;margin-top:6px;display:grid;gap:10px}
+.btn{border:1px solid var(--b300);background:var(--b50);color:var(--b700);border-radius:9px;padding:7px 12px;cursor:pointer;font-size:13px}
+.btn:hover{background:var(--b100)}
+.btn.solid{background:var(--b600);border-color:var(--b600);color:#fff}
+.btn.solid:hover{background:var(--b700)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--b300);border-radius:10px;overflow:hidden}
+.mode button{border:0;background:var(--b50);padding:8px 6px;font-size:12.5px;cursor:pointer;color:var(--b700)}
+.mode button.on{background:var(--b600);color:#fff}
+.mode button:disabled{opacity:.45;cursor:not-allowed}
+.hint{font-size:12px;color:var(--ink2)}
+main{min-width:0}
+.ask{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+.ask label{display:block;font-weight:650;color:var(--b800);margin-bottom:8px}
+.askrow{display:flex;gap:10px}
+.askrow textarea{flex:1;resize:vertical;min-height:54px;max-height:200px;border:1.5px solid var(--b300);border-radius:11px;padding:12px 14px;background:var(--b50);outline:none;font-size:15.5px}
+.askrow textarea:focus{border-color:var(--b500);background:#fff;box-shadow:0 0 0 4px rgba(47,111,189,.14)}
+.askrow .btn{align-self:stretch;min-width:104px;font-weight:650;font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chip{border:1px solid var(--b200);background:var(--b50);color:var(--b700);padding:5px 11px;border-radius:99px;font-size:12.8px;cursor:pointer}
+.chip:hover{background:var(--b100);border-color:var(--b300)}
+.chiplabel{font-size:12px;color:var(--ink2);margin-top:12px}
+#thread{margin-top:22px;display:grid;gap:22px}
+.resp{background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.qhead{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;background:var(--b50);border-bottom:1px solid var(--line)}
+.qmark{flex:none;width:30px;height:30px;border-radius:9px;background:var(--b700);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+.qhead h2{margin:0;font-size:17px;line-height:1.35;color:var(--b900);font-weight:650;flex:1}
+.qhead .meta{font-size:12px;color:var(--ink2);margin-top:3px;font-weight:400}
+.qhead .acts{display:flex;gap:6px}
+.ico{border:1px solid var(--b200);background:#fff;border-radius:8px;padding:4px 9px;font-size:12px;color:var(--b600);cursor:pointer}
+.ico:hover{background:var(--b100)}
+.band{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.band.q{background:var(--b600);color:#fff}
+.band.a{background:var(--b900);color:#fff}
+.band small{letter-spacing:.2px;text-transform:none;font-weight:400;color:var(--b200);font-size:12.5px}
+.quotes{padding:16px 18px;display:grid;gap:14px;background:linear-gradient(var(--b100),var(--b50))}
+.cl{background:#fff;border:1px solid var(--b200);border-left:5px solid var(--b600);border-radius:10px;padding:12px 16px 12px}
+.cl .ch{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.ref{background:var(--b800);color:#fff;border-radius:7px;padding:2px 9px;font-weight:650;font-size:13px;white-space:nowrap}
+.sec{font-size:12.5px;color:var(--ink2)}
+.badge{border-radius:99px;padding:1px 9px;font-size:11.5px;font-weight:650;border:1px solid}
+.badge.req{background:var(--b700);color:#fff;border-color:var(--b700)}
+.badge.adv{background:#fff;color:var(--b600);border-color:var(--b500)}
+.badge.may{background:var(--b200);color:var(--b800);border-color:var(--b300)}
+.badge.inf{background:var(--b50);color:var(--ink2);border-color:var(--line)}
+.badge.ifs{background:#dbe8f8;color:var(--b900);border-color:var(--b300)}
+.score{margin-left:auto;font-size:11.5px;color:var(--b400)}
+.path{font-size:12px;color:var(--ink2);margin-bottom:6px}
+.qt{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.6;color:#0b1b34;white-space:pre-wrap}
+.qt.items{margin:6px 0 0 4px;padding-left:2px}
+.qt.items div{padding-left:0;margin-top:2px}
+.note{margin-top:8px;border-left:3px solid var(--b300);padding:2px 0 2px 12px;font-family:Georgia,serif;font-size:14.5px;color:#25405f;white-space:pre-wrap}
+mark{background:#cfe3fb;color:inherit;border-radius:3px;padding:0 1px;box-shadow:0 0 0 1px #b5d2f3}
+.tbl{margin-top:10px;border:1px solid var(--b200);border-radius:9px;overflow:hidden}
+.tbl .cap{background:var(--b100);padding:6px 10px;font-size:12.8px;font-weight:650;color:var(--b800)}
+.tbl .sc{overflow:auto;max-height:300px}
+.tbl table{border-collapse:collapse;width:100%;font-size:13px}
+.tbl th{position:sticky;top:0;background:var(--b700);color:#fff;text-align:left;padding:5px 9px;font-weight:600;border-right:1px solid var(--b600)}
+.tbl td{padding:5px 9px;border-top:1px solid var(--b200);border-right:1px solid var(--b100);vertical-align:top}
+.tbl tr:nth-child(even) td{background:var(--b50)}
+.warn{margin-top:8px;font-size:12.5px;color:var(--b700);background:var(--b100);border:1px dashed var(--b400);border-radius:8px;padding:5px 10px}
+.eq{margin-top:8px;overflow:auto;background:var(--b50);border:1px solid var(--b200);border-radius:8px;padding:8px 12px;font-size:13px}
+.eq pre{margin:0;white-space:pre-wrap;word-break:break-word;font-size:12.5px}
+.figs{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.figs a{display:block;border:1px solid var(--b200);border-radius:8px;overflow:hidden;background:#fff}
+.figs img{display:block;max-height:300px;max-width:min(100%,560px)}
+.badge.used{background:var(--b900);color:#fff;border-color:var(--b900)}
+.badge.via{background:#fff;color:var(--b500);border-color:var(--b300);border-style:dashed}
+.plan{margin-top:6px;font-size:12.8px;color:var(--ink2);font-weight:400}
+.plan b{color:var(--b700)}
+.ref.unv{background:#fff;color:#7a3b00;border:1px solid #d9a066}
+.ans h4.sh{margin:14px 0 5px}
+.prose h4{margin:14px 0 5px;font-size:13px;color:var(--b600);text-transform:uppercase;letter-spacing:.8px}
+.prose h4:first-child{margin-top:0}
+.chk{font-size:12.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
+.steps{display:grid;gap:4px;color:var(--ink2);font-size:13.5px}
+.xr{margin-top:8px;font-size:12.5px;color:var(--ink2)}
+.src{margin-top:9px;padding-top:8px;border-top:1px dashed var(--b200);display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink2)}
+.src a,.src button{color:var(--b600);text-decoration:none;background:none;border:0;cursor:pointer;padding:0;font-size:12px}
+.src a:hover,.src button:hover{text-decoration:underline}
+.more{margin:0 18px 16px;justify-self:start}
+.ans{padding:18px 20px 20px;display:grid;gap:14px}
+.ans .lead{font-size:15.5px;margin:0;color:var(--b900)}
+.ans h4{margin:0 0 6px;font-size:13px;color:var(--b600);text-transform:uppercase;letter-spacing:.8px}
+.ans ul{margin:0;padding-left:20px;display:grid;gap:5px}
+.ans li .ref{font-size:12px;padding:1px 7px;margin-right:6px}
+.ans .vals{display:flex;gap:6px;flex-wrap:wrap}
+.vals span{background:var(--b100);border:1px solid var(--b200);border-radius:7px;padding:2px 8px;font-size:13px}
+.vals i{font-style:normal;color:var(--b600);font-size:11.5px;margin-left:4px}
+.ans .prose p{margin:0 0 10px}
+.ans .prose ul,.ans .prose ol{margin:0 0 10px;padding-left:22px}
+.ans .foot{font-size:12.5px;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
+.tagok{color:var(--b600);font-weight:600}
+.tagmiss{color:#8a3b00;font-weight:600}
+.empty{padding:28px 20px;text-align:center;color:var(--ink2)}
+.hero{text-align:center;padding:34px 20px;color:var(--ink2)}
+.hero h2{color:var(--b800);margin:0 0 6px;font-size:21px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--b300);border-top-color:var(--b600);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+dialog{border:0;border-radius:16px;padding:0;max-width:520px;width:92vw;box-shadow:0 20px 60px rgba(10,31,61,.35)}
+dialog::backdrop{background:rgba(10,31,61,.5)}
+dialog .dh{background:var(--b800);color:#fff;padding:14px 18px;font-weight:650}
+dialog .db{padding:16px 18px;display:grid;gap:12px}
+dialog select,dialog input[type=text],dialog input[type=password]{width:100%;border:1.5px solid var(--b300);border-radius:9px;padding:8px 10px;background:var(--b50)}
+dialog .df{display:flex;justify-content:flex-end;gap:8px;padding:0 18px 16px}
+details.mobfilter summary{display:none}
+@media (max-width:980px){
+  aside{min-height:0}
+  .layout{grid-template-columns:1fr;padding:14px}
+  aside{position:static;max-height:none}
+  details.mobfilter summary{display:block;cursor:pointer;font-weight:650;color:var(--b700)}
+  header.top{padding:14px 16px;flex-wrap:wrap}
+  header .stats{margin-left:0}
+  .askrow{flex-direction:column}
+}
+aside{display:flex;flex-direction:column;min-height:calc(100vh - 32px)}
+.sidefoot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:6px}
+.sidefoot .fh{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--b600);font-weight:700}
+.sidefoot a{display:flex;align-items:center;gap:8px;color:var(--b700);text-decoration:none;font-size:13.5px;padding:5px 8px;border-radius:8px;border:1px solid var(--b200);background:var(--b50)}
+.sidefoot a:hover{background:var(--b100);border-color:var(--b300)}
+.rbtn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:99px;padding:6px 14px;font-size:13px;cursor:pointer}
+.rbtn:hover{background:rgba(255,255,255,.26)}
+header.top{flex-wrap:nowrap;align-items:flex-start}
+header.top>div:nth-child(2){flex:1 1 0;min-width:0}
+header .stats{align-items:center;flex:none;justify-content:flex-end}
+.logo{flex:none}
+.cover{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:3px}
+.cover b{color:#fff;font-weight:600}
+details.dg{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--b50)}
+details.dg summary{cursor:pointer;list-style:none;padding:9px 12px;font-size:13px;font-weight:600;color:var(--b800);display:flex;justify-content:space-between;gap:8px;align-items:center}
+details.dg summary::-webkit-details-marker{display:none}
+details.dg summary::after{content:"";width:7px;height:7px;border-right:2px solid var(--b500);border-bottom:2px solid var(--b500);transform:rotate(45deg);margin:-3px 2px 0 6px;transition:transform .15s;flex:none}
+details.dg[open] summary::after{transform:rotate(-135deg);margin-top:3px}
+details.dg summary em{margin-left:auto;font-style:normal;font-weight:400;color:var(--b500);font-size:12px}
+details.dg .dgb{padding:2px 6px 8px;background:#fff;border-top:1px solid var(--line);border-radius:0 0 10px 10px}
+details.dg .dgt{display:flex;justify-content:flex-end;padding:4px 6px}
+details.dg .dgt button{border:0;background:none;color:var(--b500);font-size:12px;cursor:pointer}
+@media print{aside,.ask,.acts,.src,.more{display:none!important}.layout{display:block}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21 9 3M19 21 15 3M12 6v2M12 11v2M12 16v2"/></svg></div>
+  <div>
+    <h1>UK Highway Design Standards Q&amp;A</h1>
+    <div class="sub" id="cover"></div>
+  </div>
+  <div class="stats"><span id="pills" style="display:contents"></span><button class="rbtn" id="restart" type="button" title="Clear everything and start a new session"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Restart</button></div>
+</header>
+
+<div class="layout">
+  <aside>
+    <details class="mobfilter" open>
+      <summary>Filters</summary>
+      <h3>Documents searched</h3>
+      <div id="docs"></div>
+      <div class="opt">
+        <div>
+          <h3 style="margin-bottom:6px">Answer style</h3>
+          <div class="mode"><button id="m-vault" class="on" type="button">Clause-based</button><button id="m-ai" type="button">AI reasoning</button></div>
+          <div class="hint" id="modehint" style="margin-top:6px"></div>
+        </div>
+        <button class="btn" id="btn-settings" type="button">AI settings</button>
+        <div class="hint">Quoted clauses are always taken word for word from the indexed standards, never written by the AI.</div>
+      </div>
+    </details>
+    <div class="sidefoot">
+      <div class="fh">Connect with Kaushlendra Verma</div>
+      <a href="https://www.linkedin.com/in/kaushlendra-verma" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.1 2.1 2.1 0 0 1 0 4.1zM7.1 20.5H3.6V9h3.5v11.5z"/></svg>LinkedIn</a>
+      <a href="https://kkvhub.github.io/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9S14.500 18.300 12 21c-2.500-2.700-3.800-5.700-3.800-9S9.500 5.700 12 3z"/></svg>Website</a>
+      <div class="hint">Unofficial reference tool. Always check the published standard before relying on a clause.</div>
+    </div>
+  </aside>
+
+  <main>
+    <section class="ask">
+      <label for="q">Ask a question about the standards</label>
+      <div class="askrow">
+        <textarea id="q" rows="2" placeholder="e.g. What does CD 116 require for the inscribed circle diameter of a roundabout?"></textarea>
+        <button class="btn solid" id="go" type="button">Ask</button>
+      </div>
+      <div class="chiplabel">Try one of these</div>
+      <div class="chips" id="examples"></div>
+      <div class="chips" id="recent"></div>
+    </section>
+    <section id="thread" aria-live="polite"></section>
+  </main>
+</div>
+
+<dialog id="dlg">
+  <div class="dh">AI reasoning settings</div>
+  <div class="db">
+    <div class="hint">Optional. With a key, the AI interprets your question, follows cross-references and reasons from the clauses to write the answer. The key is stored in this browser only and sent only to the provider you choose. Without a key, the Clause-based mode needs no setup.</div>
+    <label>Provider
+      <select id="prov"><option value="anthropic">Claude (Anthropic)</option><option value="gemini">Gemini (Google), free tier available</option></select>
+    </label>
+    <label><span id="keylabel">API key</span><input type="password" id="key" autocomplete="off"></label>
+    <div class="hint" id="keyhelp"></div>
+    <label>Model<input type="text" id="model"></label>
+    <div class="hint" id="modelhelp"></div>
+  </div>
+  <div class="df"><button class="btn" id="dlg-clear" type="button">Remove key</button><button class="btn solid" id="dlg-save" type="button">Save</button></div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script src="config.js"></script>
+<script src="clauses.js"></script>
+<script>
+(function(){
+"use strict";
+const DATA = window.MCHW_DATA, U = DATA.units, DOCS = DATA.meta.docs;
+const CFG = Object.assign({endpoint:"", model:"claude-sonnet-5-5"}, window.PORTAL_CONFIG || {});
+const $ = s => document.querySelector(s);
+const DOCSET = {}; DOCS.forEach(d => DOCSET[d.code] = d);
+
+/* ---------- text helpers ---------- */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+const STOP = new Set(("a an the of to in on for and or is are was were be been by with at as it its this that these those what which who whom how when where why do does did can could would should shall must may might any all some from into than then there their they them if not no yes about over under between within per i me my we our you your us give tell show list explain say says said state states stated require requires required requirement requirements clause clauses document documents standard standards mchw dmrb please").split(" "));
+const ABBR = {
+  ssd:"stopping sight distance", icd:"inscribed circle diameter", fosd:"full overtaking sight distance",
+  dal:"differential acceleration lane", sdi:"subsidiary deflection island", sltl:"segregated left turn lane",
+  wsr:"work specific requirements", ptw:"powered two wheeler", hbm:"hydraulically bound mixture",
+  hbgm:"hydraulically bound granular mixture", tscs:"thin surface course system", naa:"national application annex",
+  ifs:"instructions for specifiers", shw:"specification for highway works", rsi:"road surface influence",
+  cbgm:"cement bound granular mixture", sipt:"system installation performance trial"
+};
+const RELAX = ["departure","reduced","exceptional","relaxed","relaxation","except","minimum"];
+function stem(w){
+  if (w.length <= 3 || /^\d/.test(w)) return w;
+  if (/(sses|xes|ches|shes)$/.test(w)) w = w.slice(0,-2);
+  else if (/ies$/.test(w) && w.length>4) w = w.slice(0,-3)+"y";
+  else if (/s$/.test(w) && !/(ss|us|is)$/.test(w)) w = w.slice(0,-1);
+  if (w.length > 5 && /ing$/.test(w)) w = w.slice(0,-3);
+  else if (w.length > 4 && /ed$/.test(w)) w = w.slice(0,-2);
+  if (w.length > 4 && /e$/.test(w)) w = w.slice(0,-1);
+  return w;
+}
+function words(s){ return (String(s).toLowerCase().match(/[a-z][a-z0-9]*|\d+(?:\.\d+)*/g) || []); }
+function stripTable(md){ return md.replace(/<[^>]+>/g," ").replace(/[|:\-]{2,}/g," ").replace(/\|/g," "); }
+
+const realNotes = u => u.n.filter(x => !/^\(no caption in the PDF/.test(x));
+/* ---------- strength / labels ---------- */
+function strength(u){
+  if (u.k === "ifs") return "ifs";
+  const s = u.t + " " + u.it.join(" ");
+  if (/\b(shall|must)\b/i.test(s)) return "req";
+  if (/\bshould\b/i.test(s)) return "adv";
+  if (/\b(may|can)\b/i.test(s)) return "may";
+  return "inf";
+}
+const SLAB = {req:"Requirement", adv:"Advice", may:"Permission", inf:"Information", ifs:"WSR guidance"};
+const cite = u => u.k === "clause" ? `${u.d} cl. ${u.id}` : (u.k === "ifs" ? `${u.d} ${u.id}` : `${u.d} §${u.s}`);
+
+/* ---------- build index ---------- */
+const N = U.length;
+const post = new Map(), dl = new Float32Array(N), TXT = new Array(N);
+(function build(){
+  let tot = 0;
+  for (let i = 0; i < N; i++){
+    const u = U[i];
+    const main = [u.t, u.it.join(" "), u.n.join(" ")].join(" ");
+    const tab = u.tb.map(t => (t.cap||"") + " " + stripTable(t.md)).join(" ");
+    const head = [u.h, u.st, u.d, (DOCSET[u.d]||{}).title||"", u.fg.join(" ")].join(" ");
+    TXT[i] = (main + " " + tab).toLowerCase();
+    const tf = new Map();
+    const add = (str, w) => { for (const raw of words(str)){ if (STOP.has(raw)) continue; const t = stem(raw); tf.set(t,(tf.get(t)||0)+w); } };
+    add(main,1); add(tab,.6); add(head,1.6);
+    let len = 0;
+    tf.forEach((v,t)=>{ len += v; let p = post.get(t); if(!p){p=[];post.set(t,p);} p.push(i, v); });
+    dl[i] = len; tot += len;
+  }
+  build.avg = tot / N;
+})();
+const AVG = (function(){ let t=0; for(let i=0;i<N;i++) t+=dl[i]; return t/N; })();
+function bm25(terms, allowed){
+  const sc = new Float32Array(N), K1 = 1.2, B = .72;
+  const cv = bm25.cv = new Float32Array(N);
+  for (const [t, w] of terms){
+    const p = post.get(t); if (!p) continue;
+    const df = p.length/2, idf = Math.log(1 + (N - df + .5)/(df + .5));
+    for (let j = 0; j < p.length; j += 2){
+      const i = p[j]; if (allowed && !allowed[i]) continue;
+      const f = p[j+1];
+      if (w >= 1) cv[i] += 1;
+      sc[i] += w * idf * (f*(K1+1)) / (f + K1*(1 - B + B*dl[i]/AVG));
+    }
+  }
+  return sc;
+}
+
+/* ---------- query analysis ---------- */
+const DOCRE = /\b(CC|CP|GC|GP|CD|CS|GG|GD)\s?-?(\d{3})\b/gi;
+function analyse(q){
+  const info = {raw:q, docs:[], ids:[], tables:[], terms:[], hl:[], phrases:[], expanded:false};
+  let rest = q.replace(DOCRE, (m,a,b) => { const c = a.toUpperCase()+" "+b; if (DOCSET[c] && !info.docs.includes(c)) info.docs.push(c); return " "; });
+  rest = rest.replace(/\btables?\s+([A-Z]?\d+(?:\.\d+)*[A-Za-z]*)/gi, (m,id) => { info.tables.push(id.toLowerCase()); return " "; });
+  rest = rest.replace(/(?:\b(?:cl|clause|clauses|para|paragraph)\.?\s*)?\b([A-Z]?\d+\.\d+(?:\.\d+)*)\b/g, (m,id) => { info.ids.push(id); return /[a-z]/i.test(m) ? " " : m; });
+  const toks = words(rest);
+  const tm = new Map();
+  const put = (w, wt) => { const s = stem(w); if (!s || STOP.has(w)) return; tm.set(s, Math.max(tm.get(s)||0, wt)); };
+  toks.forEach(w => { if (STOP.has(w)) return; put(w,1); if (ABBR[w]) { info.expanded = true; words(ABBR[w]).forEach(x => put(x,.55)); } });
+  if (/\brelax/i.test(q)) { info.expanded = true; RELAX.forEach(x => put(x,.4)); }
+  info.terms = [...tm.entries()];
+  info.hl = [...new Set(toks.filter(w => !STOP.has(w) && w.length > 2).map(stem))].filter(s => s.length > 2);
+  const core = toks.filter(w => !STOP.has(w));
+  for (let i = 0; i < core.length - 1; i++) info.phrases.push(core[i]+" "+core[i+1]);
+  return info;
+}
+function search(q, allowedSet, limit){
+  const info = analyse(q);
+  let allowed = new Uint8Array(N);
+  const useDocs = info.docs.length ? info.docs.filter(d => allowedSet.has(d)).concat(info.docs.filter(d => !allowedSet.has(d))) : [...allowedSet];
+  const docSet = new Set(info.docs.length ? info.docs : allowedSet);
+  for (let i = 0; i < N; i++) allowed[i] = docSet.has(U[i].d) ? 1 : 0;
+  const sc = bm25(info.terms, allowed);
+  const cv = bm25.cv, nPrim = info.terms.filter(t => t[1] >= 1).length;
+  const need = nPrim >= 2 ? Math.ceil(nPrim * .5) : 1;
+  const cand = [];
+  for (let i = 0; i < N; i++) if (sc[i] > 0 && (!nPrim || cv[i] >= need)) cand.push(i);
+  // guard: if even the best candidate covers under half of the question's terms, report nothing
+  if (nPrim >= 3 && cand.length && Math.max(...cand.slice(0, 400).map(i => cv[i])) < nPrim * .5) cand.length = 0;
+  cand.sort((a,b) => sc[b]-sc[a]);
+  const top = cand.slice(0, 120);
+  const scored = top.map(i => {
+    let s = sc[i];
+    for (const ph of info.phrases) if (TXT[i].includes(ph)) s *= 1.12;
+    if (U[i].k === "text") s *= .85;
+    return [i, s];
+  });
+  const pinned = [];
+  if (info.ids.length || info.tables.length){
+    for (let i = 0; i < N; i++){
+      if (!allowed[i]) continue; const u = U[i];
+      if (info.ids.length && u.k !== "text" && info.ids.includes(u.id.replace(/^SI\./,""))) pinned.push([i, 1e6]);
+      else if (info.tables.length && u.tb.some(t => info.tables.some(id => new RegExp("^table\\s+"+escRe(id)+"\\b","i").test(t.cap||"")))) pinned.push([i, 5e5]);
+    }
+  }
+  const seen = new Set(), all = [];
+  [...pinned, ...scored.sort((a,b)=>b[1]-a[1])].forEach(([i,s]) => { if (!seen.has(i)) { seen.add(i); all.push([i,s]); } });
+  if (!all.length) return {info, hits:[]};
+  const best = all.find(a => a[1] < 1e5)?.[1] || all[0][1];
+  const cut = best * .38;
+  let hits = all.filter((a,idx) => a[1] >= 1e5 || a[1] >= cut).slice(0, limit);
+  if (hits.length < 3) hits = all.slice(0, Math.min(3, all.length));
+  const mx = Math.max(...hits.map(h => h[1] >= 1e5 ? best : h[1]));
+  return {info, hits: hits.map(([i,s]) => ({u:U[i], score: Math.min(1, (s>=1e5?best:s)/mx)}))};
+}
+
+/* ---------- rendering ---------- */
+function hlRaw(s, re){ return re ? String(s).replace(re, m => "\u0001"+m+"\u0002") : String(s); }
+function hlOut(s){ return esc(s).replace(/\u0001/g,"<mark>").replace(/\u0002/g,"</mark>"); }
+function hlRe(stems){ return stems.length ? new RegExp("\\b("+stems.map(escRe).join("|")+")[a-z0-9]*","gi") : null; }
+function cellHtml(raw, re){
+  let h = hlOut(hlRaw(raw.replace(/<br\s*\/?>/gi,"\u0003"), re).replace(/<(\/?)(sub|sup)>/gi, (m,a,b)=>"\u0004"+a+b+"\u0005"));
+  return h.replace(/\u0003/g,"<br>").replace(/\u0004(\/?)(sub|sup)\u0005/g,"<$1$2>");
+}
+function splitRow(l){ l = l.trim().replace(/^\|/,"").replace(/\|$/,""); return l.split(/(?<!\\)\|/).map(c => c.trim().replace(/\\\|/g,"|")); }
+function tableHtml(t, re){
+  const lines = t.md.split("\n").filter(l => l.trim().startsWith("|"));
+  if (lines.length < 2) return "";
+  const head = splitRow(lines[0]);
+  const body = lines.slice(/^\s*\|?[\s:|-]+\|?\s*$/.test(lines[1]) ? 2 : 1).map(splitRow);
+  return `<div class="tbl">${t.cap ? `<div class="cap">${esc(t.cap)}</div>` : ""}<div class="sc"><table><thead><tr>${head.map(c=>`<th>${cellHtml(c,null)}</th>`).join("")}</tr></thead><tbody>${body.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c,re)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>${t.auto ? `<div class="warn">Table auto-extracted from the PDF. Check the values against the source page before relying on them.</div>` : ""}`;
+}
+function clauseHtml(h, info, re, idx){
+  const u = h.u, st = strength(u);
+  const src = (u.rel||"").split("/").pop();
+  const page = u.p ? `PDF p.${u.p}` : "";
+  
+  const set = (DOCSET[u.d]||{}).set || "";
+  let html = `<article class="cl" data-i="${u.i}">
+    <div class="ch"><span class="ref">${esc(cite(u))}</span>${u.k!=="text" ? `<span class="badge ${st}">${SLAB[st]}</span>`:`<span class="badge inf">Section text</span>`}${h.via ? `<span class="badge via">Cross-reference</span>` : ""}
+      <span class="sec">${esc((DOCSET[u.d]||{}).title||"")}${u.s ? ` · Section ${esc(u.s)}` : ""}</span><span class="score" title="Relative match strength">${Math.round(h.score*100)}% match</span></div>
+    ${u.h ? `<div class="path">${esc(u.h)}</div>` : ""}
+    <div class="qt">${u.k==="ifs" ? hlOut(hlRaw(u.id+" "+u.t, re)) : hlOut(hlRaw((u.id && u.k==="clause" ? u.id+" " : "")+u.t, re))}</div>`;
+  if (u.it.length) html += `<div class="qt items">${u.it.map(x => `<div>${hlOut(hlRaw(x,re))}</div>`).join("")}</div>`;
+  realNotes(u).forEach(n => html += `<div class="note">${hlOut(hlRaw(n,re))}</div>`);
+  u.tb.forEach(t => html += tableHtml(t, re));
+  u.eq.forEach(e => {
+    if (/^\$\$/.test(e)) html += `<div class="eq" data-tex="${esc(e.replace(/^\$\$|\$\$$/g,""))}"><pre>${esc(e)}</pre></div>`;
+    else html += `<div class="note">${esc(e)}</div>`;
+  });
+  if (u.im.length) html += `<div class="figs">${u.im.map(p => `<a href="${encodeURI(p)}" target="_blank" rel="noopener" title="Open full size"><img loading="lazy" src="${encodeURI(p)}" alt="Figure for ${esc(cite(u))}" onerror="this.parentNode.style.display='none'"></a>`).join("")}</div>${u.fg.length ? `<div class="xr">${esc(u.fg.join(" | "))}</div>` : ""}`;
+  u.fl.forEach(f => html += `<div class="warn">${esc(f.replace(/^\[![a-z]+\]\s*/i,""))}</div>`);
+  if (u.x.length) html += `<div class="xr">Cross-references: ${esc(u.x.join(" | "))}</div>`;
+  html += `<div class="src"><span>Source: ${esc(u.d)}${page ? " · "+page : ""}</span><button type="button" data-copy="${u.i}">Copy quote</button></div></article>`;
+  return html;
+}
+function plainQuote(u){
+  let s = cite(u) + " (" + u.d + " S" + u.s + "): " + (u.k==="clause" ? u.id+" " : "") + u.t;
+  if (u.it.length) s += "\n" + u.it.join("\n");
+  if (realNotes(u).length) s += "\n" + realNotes(u).join("\n");
+  return s;
+}
+
+/* ---------- vault (extractive) answer ---------- */
+function firstSentence(t, n){
+  const m = t.match(/^(.{20,}?[.;:])(\s|$)/);
+  let s = m ? m[1] : t;
+  if (s.length > n) s = s.slice(0, n).replace(/\s+\S*$/,"") + " ...";
+  return s;
+}
+function docMentions(u){
+  const txt = [u.t, u.it.join(" "), realNotes(u).join(" ")].join(" ");
+  const out = new Set(); let m; const re = /\b(CC|CP|GC|GP|CD|CS|GG|GD|CG|CM|CA|CH|GM|GS)\s?(\d{3})\b/g;
+  while ((m = re.exec(txt))) { const c = m[1]+" "+m[2]; if (c !== u.d) out.add(c); }
+  return out;
+}
+function vaultAnswer(res){
+  const hits = res.hits, top = hits.slice(0, 8);
+  if (!hits.length) return "";
+  const groups = {req:[], adv:[], may:[], inf:[], ifs:[]};
+  top.forEach(h => groups[strength(h.u)].push(h.u));
+  const docsHit = {}; hits.forEach(h => docsHit[h.u.d] = (docsHit[h.u.d]||0)+1);
+  const docList = Object.entries(docsHit).map(([d,n]) => `${esc(d)} (${n})`).join(", ");
+  let html = `<p class="lead">The indexed standards contain ${hits.length} relevant ${hits.length===1?"provision":"provisions"} in ${Object.keys(docsHit).length} ${Object.keys(docsHit).length===1?"document":"documents"}: ${docList}. `;
+  html += `${groups.req.length ? `${groups.req.length} of the leading matches ${groups.req.length===1?"is a requirement":"are requirements"} (shall/must)` : "None of the leading matches is a firm requirement"}${groups.adv.length ? `, ${groups.adv.length} ${groups.adv.length===1?"is advice":"are advice"} (should)` : ""}${groups.may.length ? `, ${groups.may.length} ${groups.may.length===1?"is a permission":"are permissions"} (may)` : ""}.</p>`;
+  const sect = (title, arr) => arr.length ? `<div><h4>${title}</h4><ul>${arr.map(u => `<li><span class="ref">${esc(cite(u))}</span>${esc(firstSentence(u.k==="ifs" ? u.t : u.t, 280))}</li>`).join("")}</ul></div>` : "";
+  html += sect("Requirements (shall / must)", groups.req);
+  html += sect("Advice (should)", groups.adv);
+  html += sect("Permissions and options (may / can)", groups.may);
+  html += sect("Other statements", groups.inf);
+  html += sect("Work-specific requirements guidance (IfS)", groups.ifs);
+  // numbers
+  const vals = []; const vre = /(?<![\w.])(\d[\d,]*(?:\.\d+)?)\s?(mm|m\b|metres|km\/h|kph|%|°|degrees|MPa|kN|kg|tonnes?|hours?|days?|years?|pcu|°C)/g;
+  top.filter(h => strength(h.u)!=="inf" || true).slice(0,6).forEach(h => {
+    const u = h.u; const txt = u.t + " " + u.it.join(" "); let m, c = 0;
+    vre.lastIndex = 0;
+    while ((m = vre.exec(txt)) && c < 4) { vals.push(`<span>${esc(m[1]+" "+m[2])}<i>${esc(cite(u))}</i></span>`); c++; }
+  });
+  if (vals.length) html += `<div><h4>Numeric values stated in the leading clauses</h4><div class="vals">${[...new Set(vals)].slice(0,16).join("")}</div></div>`;
+  // conditions
+  const conds = [];
+  top.forEach(h => { const u = h.u; const m = (u.t).match(/\b(unless|except|provided that|only if|only where|where|if|when|in the case of)\b[^.;]{8,170}/i); if (m && u.k!=="ifs") conds.push(`<li><span class="ref">${esc(cite(u))}</span>${esc(m[0])}</li>`); });
+  if (conds.length) html += `<div><h4>Conditions that qualify the wording</h4><ul>${conds.slice(0,6).join("")}</ul></div>`;
+  // cross refs
+  const refs = new Set(); hits.slice(0,8).forEach(h => docMentions(h.u).forEach(c => refs.add(c)));
+  if (refs.size){
+    html += `<div><h4>Other documents these clauses cite</h4><ul>${[...refs].map(c => DOCSET[c] ? `<li><span class="ref">${esc(c)}</span><span class="tagok">covered here</span> (${esc(DOCSET[c].title)}). Tick it under Documents searched and ask again to read the cited clause.</li>` : `<li><span class="ref">${esc(c)}</span><span class="tagmiss">cited but not covered here</span>, so its content is not available in this tool.</li>`).join("")}</ul></div>`;
+  }
+  // flags
+  const flags = [];
+  top.forEach(h => { if (h.u.tb.some(t=>t.auto)) flags.push(`<li><span class="ref">${esc(cite(h.u))}</span>contains a table marked auto-extracted. Check the values against ${h.u.p ? "PDF p."+h.u.p : "the source PDF"}.</li>`); h.u.fl.forEach(f => flags.push(`<li><span class="ref">${esc(cite(h.u))}</span>${esc(f.replace(/^\[![a-z]+\]\s*/i,""))}</li>`)); });
+  if (flags.length) html += `<div><h4>Check against the source</h4><ul>${[...new Set(flags)].slice(0,5).join("")}</ul></div>`;
+  html += `<div class="foot">Assembled only from the quoted clauses, with no outside knowledge. Where exact wording matters, rely on the quotation above, and keep the shall / should distinction when you apply it.</div>`;
+  return html;
+}
+
+/* ---------- AI reasoning pipeline ---------- */
+const PROV = {
+  anthropic:{name:"Claude", key:"sk-ant-...", model:"claude-sonnet-5-5", keyhelp:"Get a key in the Claude Console (platform.claude.com). API use is billed with prepaid credits.", modelhelp:"Use a current Claude model ID from the Console."},
+  gemini:{name:"Gemini", key:"AIza...", model:"gemini-3.8-flash", keyhelp:"Get a free key in Google AI Studio (aistudio.google.com), no card needed. Free-tier content may be used by Google to improve its products, so do not send confidential text.", modelhelp:"Copy the exact model ID from the AI Studio model list. A Flash model is the usual free choice, for example gemini-3.8-flash or gemini-3.5-flash-lite."}
+};
+const provId = () => lsGet("mchw_provider") === "gemini" ? "gemini" : "anthropic";
+const keyOf = p => lsGet("mchw_key_" + p) || (p === "anthropic" ? lsGet("mchw_key") : "") || "";
+const modelOf = p => lsGet("mchw_model_" + p) || (p === "anthropic" ? (lsGet("mchw_model") || CFG.model) : "") || PROV[p].model;
+const AIREADY = () => !!(CFG.endpoint || keyOf(provId()));
+const provLabel = () => CFG.endpoint ? "Claude" : PROV[provId()].name + (provId() === "gemini" && LASTMODEL ? " (" + LASTMODEL + ")" : "");
+const HIST = [];
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+let NOTE = null, LASTMODEL = ""; const BUSY = {};
+const GEM_FALLBACK = ["gemini-3.5-flash", "gemini-3.5-flash-lite"];
+async function llm(system, user, max, json){
+  if (!CFG.endpoint && provId() === "gemini"){
+    const first = modelOf("gemini"), all = [first, ...GEM_FALLBACK.filter(m => m !== first)];
+    const fresh = all.filter(m => !(BUSY[m] && Date.now() - BUSY[m] < 90000)), models = fresh.length ? fresh : all;
+    const body = {systemInstruction:{parts:[{text:system}]}, contents:[{role:"user", parts:[{text:user}]}],
+      generationConfig:{maxOutputTokens: Math.max(4096, max * 3)}};
+    if (json) body.generationConfig.responseMimeType = "application/json";
+    let lastErr;
+    for (let mi = 0; mi < models.length; mi++){
+      for (let attempt = 0; attempt < 2; attempt++){
+        const r = await fetch("https://generativelanguage.googleapis.com/v1beta/models/" + encodeURIComponent(models[mi]) + ":generateContent",
+          {method:"POST", headers:{"content-type":"application/json", "x-goog-api-key": keyOf("gemini")}, body: JSON.stringify(body)});
+        if (r.ok){
+          const j = await r.json(), c = (j.candidates || [])[0];
+          const txt = ((c && c.content && c.content.parts) || []).map(x => x.text || "").join("");
+          if (txt){ LASTMODEL = models[mi]; return txt; }
+          lastErr = new Error("Gemini returned no text" + (c && c.finishReason ? " (" + c.finishReason + ")" : j.promptFeedback && j.promptFeedback.blockReason ? " (blocked: " + j.promptFeedback.blockReason + ")" : ""));
+          break;
+        }
+        lastErr = new Error("Gemini " + r.status + ": " + (await r.text()).slice(0,200));
+        if (![429,500,502,503,504].includes(r.status)) throw lastErr;
+        BUSY[models[mi]] = Date.now();
+        if (NOTE) NOTE(models[mi] + " is busy" + (attempt === 0 ? ", retrying…" : (mi + 1 < models.length ? ", trying " + models[mi + 1] + "…" : "")));
+        await sleep(attempt === 0 ? 1800 : 600);
+      }
+    }
+    throw lastErr;
+  }
+  const body = {model: CFG.endpoint ? CFG.model : modelOf("anthropic"), max_tokens: max, system, messages:[{role:"user", content:user}]};
+  const headers = {"content-type":"application/json"};
+  if (!CFG.endpoint){ headers["x-api-key"] = keyOf("anthropic"); headers["anthropic-version"] = "2023-06-01"; headers["anthropic-dangerous-direct-browser-access"] = "true"; }
+  let r;
+  for (let attempt = 0; attempt < 3; attempt++){
+    r = await fetch(CFG.endpoint || "https://api.anthropic.com/v1/messages", {method:"POST", headers, body: JSON.stringify(body)});
+    if (r.ok || ![429,500,503,529].includes(r.status)) break;
+    if (NOTE) NOTE("The AI service is busy, retrying…");
+    await sleep(1500 * (attempt + 1));
+  }
+  if (!r.ok) throw new Error("API " + r.status + ": " + (await r.text()).slice(0,160));
+  const j = await r.json();
+  return (j.content || []).map(c => c.text || "").join("");
+}
+const PLAN_SYS = "You are the search planner for a tool that answers questions about UK highway design standards: MCHW specification clauses (CC, GC), instructions for specifiers (CP, GP) and DMRB design documents (CD, GG), England scope. Return JSON only, no prose: {\"intent\":\"one sentence saying what the user really needs to know\",\"documents\":[codes most likely to hold the answer, only from the supplied list, empty if unsure],\"queries\":[2 to 4 short keyword queries written in the standards' own vocabulary, with abbreviations expanded and likely synonyms, each aimed at a different part of the question]}. If the question follows on from the conversation, resolve pronouns and omitted subjects in the intent and the queries. For design questions think about which document sets the requirement, which gives advice, and which England National Application Annex clauses might modify it.";
+async function planStep(q){
+  const list = DOCS.map(d => d.code + ": " + d.title).join("\n");
+  const hist = HIST.slice(-2).map(h => "Q: " + h.q + "\nA: " + h.a.slice(0,500)).join("\n\n");
+  const txt = await llm(PLAN_SYS, "Documents:\n" + list + "\n\n" + (hist ? "Conversation so far:\n" + hist + "\n\n" : "") + "Question: " + q, 450, true);
+  const m = txt.match(/\{[\s\S]*\}/); if (!m) throw new Error("no plan");
+  const p = JSON.parse(m[0]);
+  return {intent: String(p.intent || q), documents: (p.documents || []).filter(d => DOCSET[d]), queries: (p.queries || []).map(String).filter(Boolean).slice(0,4)};
+}
+const KEY = new Map(), TBL = new Map();
+U.forEach(u => {
+  if (u.k === "clause" && !KEY.has(u.d + "|" + u.id)) KEY.set(u.d + "|" + u.id, u);
+  u.tb.forEach(t => { const m = (t.cap || "").match(/^Table\s+(\S+)/); if (m && !TBL.has(u.d + "|" + m[1])) TBL.set(u.d + "|" + m[1], u); });
+});
+function expandRefs(hits){
+  const have = new Set(hits.map(h => h.u.i)), add = [];
+  const push = u => { if (u && !have.has(u.i) && add.length < 4) { have.add(u.i); add.push({u, score:.45, via:true}); } };
+  for (const h of hits.slice(0,8)){
+    const u = h.u, txt = u.t + " " + u.it.join(" ");
+    for (const m of txt.matchAll(/\bTable\s+([A-Z]?\/?\d+(?:\.\d+)*)/g)) push(TBL.get(u.d + "|" + m[1]));
+    for (const m of txt.matchAll(/\b(?:clause|paragraph)s?\s+(\d+(?:\.\d+)+)/gi)) push(KEY.get(u.d + "|" + m[1]));
+  }
+  return add;
+}
+function fusedSearch(q, plan){
+  const qs = [q, ...plan.queries.filter(x => x.toLowerCase() !== q.toLowerCase())];
+  const run = allowed => {
+    const fused = new Map(), hl = new Set();
+    qs.forEach((qq, qi) => {
+      const r = search(qq, allowed, 12);
+      r.info.hl.forEach(x => hl.add(x));
+      r.hits.forEach((h, rank) => { const e = fused.get(h.u.i) || {u:h.u, s:0}; e.s += (qi === 0 ? 1.3 : 1) / (60 + rank); fused.set(h.u.i, e); });
+    });
+    return {fused, hl};
+  };
+  const pd = new Set(plan.documents.filter(d => sel.has(d)));
+  let out = pd.size ? run(pd) : run(sel);
+  if (pd.size && out.fused.size < 4) out = run(sel);
+  const sorted = [...out.fused.values()].sort((a,b) => b.s - a.s).slice(0, 12);
+  let hits = sorted.map(e => ({u:e.u, score: e.s / sorted[0].s}));
+  if (hits.length) hits = hits.concat(expandRefs(hits));
+  return {info:{hl:[...out.hl], terms: qs.map(x => [x,1]), expanded:false}, hits};
+}
+const ANS_SYS = "You are a senior highway design standards adviser answering from numbered evidence only. The evidence is clause text from UK highway standards (MCHW specification CC/GC, instructions for specifiers CP/GP, DMRB CD/GG, England scope). Method: (1) work out what situation the user is asking about and say what you assume; (2) decide which evidence clauses govern, and note their strength: shall/must is a requirement, should is advice, may is a permission; (3) reason it through the way an engineer would: apply the conditions and exceptions, respect the hierarchy (a CD sets the design requirement, a CC is the contract specification, a CP tells the specifier what to enter in the work-specific requirements, England National Application Annex clauses with an E/ prefix modify the core clause), resolve overlaps between clauses, and do any table lookup or arithmetic explicitly, showing the working; (4) give a direct answer with values and units. Never use knowledge from outside the evidence. If the evidence does not answer the question, or only part of it, say exactly what is missing and which document would need to be checked. Cite every claim with the evidence label in square brackets exactly as written in the evidence header, one label per bracket, for example [CD 116 cl. 3.8] [CD 109 cl. 2.10]. Do not cite anything that is not in the evidence. Flag any table marked auto-extracted and any equation marked flattened so the reader checks the PDF page. The clauses are already quoted for the reader above your answer, so do not re-quote at length. Write the answer under these four headings, each on its own line starting with ## : Short answer, Reasoning, Conditions and exceptions, Limits of the evidence. Short answer is two to four sentences. Reasoning is connected prose that follows the logic from clause to clause, with a short list only for values. Direct, peer-level tone, no filler, no em-dashes.";
+function evidenceText(hits){
+  return hits.slice(0,16).map(h => { const u = h.u;
+    let s = `[${cite(u)}] ${u.d} ${(DOCSET[u.d]||{}).title || ""}, section ${u.s}${u.h ? ", " + u.h : ""}${h.via ? " (pulled in because another clause cites it)" : ""}\n${u.k === "clause" ? u.id + " " : ""}${u.t}`;
+    if (u.it.length) s += "\n" + u.it.join("\n");
+    if (realNotes(u).length) s += "\n" + realNotes(u).join("\n");
+    u.tb.forEach(t => { s += `\n${t.cap || "Table"}${t.auto ? " (AUTO-EXTRACTED, check against PDF)" : ""}:\n${t.md}`; });
+    u.fl.forEach(f => { s += "\nFLAG: " + f.replace(/^\[![a-z]+\]\s*/i,""); });
+    return s.slice(0,3800); }).join("\n\n---\n\n");
+}
+async function aiAnswer(q, plan, hits){
+  const hist = HIST.slice(-2).map(h => "Q: " + h.q + "\nA: " + h.a.slice(0,700)).join("\n\n");
+  return llm(ANS_SYS, "Question: " + q + (plan ? "\nUnderstood as: " + plan.intent : "") + "\n\n" + (hist ? "Conversation so far:\n" + hist + "\n\n" : "") + "Evidence (the only material you may use):\n\n" + evidenceText(hits), 1800);
+}
+const LABEL_RE = /\[([A-Z]{2} \d{3} (?:cl\. [^\]\s]+|SI\.[^\]\s]+|§[^\]\s]+))\]/g;
+function mdLite(s, known){
+  const blocks = esc(s).split(/\n\s*\n/);
+  const inline = x => x.replace(/\*\*(.+?)\*\*/g,"<b>$1</b>").replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\[([A-Z]{2} \d{3} (?:cl\. [^\]\s]+|SI\.[^\]\s]+|§[^\]\s]+))\]/g, (m, l) => `<span class="ref${known && !known.has(l) ? " unv" : ""}">${l}</span>`);
+  return blocks.map(b => {
+    const ls = b.split("\n");
+    if (/^##\s/.test(ls[0])) {
+      const rest = ls.slice(1).join("\n").trim();
+      return "<h4>" + ls[0].replace(/^##\s*/,"") + "</h4>" + (rest ? mdLite(rest.replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">"), known) : "");
+    }
+    if (ls.every(l => /^\s*[-*]\s+/.test(l))) return "<ul>" + ls.map(l => "<li>" + inline(l.replace(/^\s*[-*]\s+/,"")) + "</li>").join("") + "</ul>";
+    if (ls.every(l => /^\s*\d+[.)]\s+/.test(l))) return "<ol>" + ls.map(l => "<li>" + inline(l.replace(/^\s*\d+[.)]\s+/,"")) + "</li>").join("") + "</ol>";
+    return "<p>" + inline(ls.join("<br>")) + "</p>";
+  }).join("");
+}
+
+/* ---------- storage ---------- */
+function lsGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+function lsSet(k,v){ try { localStorage.setItem(k,v); } catch(e){} }
+function lsDel(k){ try { localStorage.removeItem(k); } catch(e){} }
+
+/* ---------- UI state ---------- */
+let mode = (function(){ const st = lsGet("mchw_mode"); if (st) return st === "ai" && AIREADY() ? "ai" : "vault"; return CFG.endpoint ? "ai" : "vault"; })();
+const sel = new Set(DOCS.map(d => d.code));
+const SETNAME = {SHW:"Specification for Highway Works (CC, GC)", IfS:"Instructions for Specifiers (CP, GP)", DMRB:"Design Manual for Roads and Bridges"};
+const openG = new Set();
+function renderDocs(){
+  const box = $("#docs"); box.innerHTML = "";
+  ["SHW","IfS","DMRB"].forEach(g => {
+    const ds = DOCS.filter(d => d.set === g); if (!ds.length) return;
+    const n = ds.filter(d => sel.has(d.code)).length;
+    const el = document.createElement("details"); el.className = "dg"; el.dataset.g = g; el.open = openG.has(g);
+    el.innerHTML = `<summary><span>${SETNAME[g]}</span><em>${n}/${ds.length}</em></summary><div class="dgb"><div class="dgt"><button type="button" data-g="${g}">${n===ds.length?"Clear all":"Select all"}</button></div>` +
+      ds.map(d => `<label class="doc"><input type="checkbox" data-c="${esc(d.code)}" ${sel.has(d.code)?"checked":""}><b>${esc(d.code)}</b><span>${esc(d.title.length>34?d.title.slice(0,33)+"…":d.title)}</span><em>${d.n}</em></label>`).join("") + `</div>`;
+    el.addEventListener("toggle", () => { el.open ? openG.add(g) : openG.delete(g); });
+    box.appendChild(el);
+  });
+}
+$("#docs").addEventListener("change", e => { const c = e.target.dataset.c; if (!c) return; e.target.checked ? sel.add(c) : sel.delete(c); renderDocs(); });
+$("#docs").addEventListener("click", e => { const g = e.target.dataset.g; if (!g) return; const ds = DOCS.filter(d=>d.set===g); const all = ds.every(d=>sel.has(d.code)); ds.forEach(d => all ? sel.delete(d.code) : sel.add(d.code)); renderDocs(); });
+function setMode(m){
+  if (m === "ai" && !AIREADY()) { $("#dlg").showModal(); return; }
+  mode = m; lsSet("mchw_mode", m);
+  $("#m-vault").classList.toggle("on", m==="vault"); $("#m-ai").classList.toggle("on", m==="ai");
+  $("#modehint").textContent = m === "vault" ? "Digest built from the quoted clauses. No key needed, no reasoning." : "The AI interprets the question, searches the standards, follows cross-references, then reasons from the clauses. Needs internet.";
+}
+$("#m-vault").onclick = () => setMode("vault"); $("#m-ai").onclick = () => setMode("ai");
+function fillDlg(){
+  const p = $("#prov").value;
+  $("#keylabel").textContent = (p === "gemini" ? "Google AI Studio API key" : "Anthropic API key");
+  $("#key").placeholder = PROV[p].key; $("#key").value = keyOf(p);
+  $("#model").value = modelOf(p); $("#keyhelp").textContent = PROV[p].keyhelp; $("#modelhelp").textContent = PROV[p].modelhelp;
+}
+$("#btn-settings").onclick = () => { $("#prov").value = provId(); fillDlg(); $("#dlg").showModal(); };
+$("#prov").onchange = fillDlg;
+$("#dlg-save").onclick = () => { const p = $("#prov").value, k = $("#key").value.trim(); lsSet("mchw_provider", p); if (k) lsSet("mchw_key_" + p, k); lsSet("mchw_model_" + p, $("#model").value.trim() || PROV[p].model); $("#dlg").close(); if (k) setMode("ai"); };
+$("#dlg-clear").onclick = () => { const p = $("#prov").value; lsDel("mchw_key_" + p); if (p === "anthropic") lsDel("mchw_key"); $("#key").value = ""; if (!AIREADY()) setMode("vault"); $("#dlg").close(); };
+
+const EXAMPLES = [
+  "What are the requirements for transverse cracks in an HBGM base?",
+  "How is the inscribed circle diameter of a roundabout defined and measured?",
+  "When can a relaxation be applied to stopping sight distance in CD 109?",
+  "What does CD 116 say about segregated left turn lanes?",
+  "What are the requirements for cycle track width?",
+  "What must the specifier enter for the thin surface course system?"
+];
+$("#examples").innerHTML = EXAMPLES.map(x => `<button type="button" class="chip">${esc(x)}</button>`).join("");
+$("#examples").addEventListener("click", e => { if (e.target.classList.contains("chip")) { $("#q").value = e.target.textContent; ask(); } });
+function renderRecent(){
+  let r = []; try { r = JSON.parse(lsGet("mchw_recent")||"[]"); } catch(e){}
+  $("#recent").innerHTML = r.length ? `<span class="chiplabel" style="margin:0 6px 0 0">Recent</span>` + r.map(x => `<button type="button" class="chip">${esc(x)}</button>`).join("") : "";
+}
+$("#recent").addEventListener("click", e => { if (e.target.classList.contains("chip")) { $("#q").value = e.target.textContent; ask(); } });
+function pushRecent(q){ let r = []; try { r = JSON.parse(lsGet("mchw_recent")||"[]"); } catch(e){} r = [q, ...r.filter(x => x !== q)].slice(0,5); lsSet("mchw_recent", JSON.stringify(r)); renderRecent(); }
+
+/* ---------- asking ---------- */
+const thread = $("#thread"); const LAST = new Map();
+const SHOW = 6, MAXH = 16;
+function renderTex(root){
+  if (!window.katex) return;
+  root.querySelectorAll(".eq[data-tex]").forEach(el => { try { el.innerHTML = katex.renderToString(el.dataset.tex, {displayMode:true, throwOnError:true}); } catch(e){} });
+}
+async function ask(){
+  const q = $("#q").value.trim(); if (!q) return;
+  if (!sel.size) { alert("Select at least one document to search."); return; }
+  pushRecent(q);
+  const id = "r" + Date.now();
+  const sec = document.createElement("section"); sec.className = "resp"; sec.id = id;
+  const head = meta => `<div class="qhead"><div class="qmark">Q</div><h2>${esc(q)}<div class="meta">${meta}</div></h2><div class="acts"><button class="ico" data-act="copy" type="button">Copy all</button><button class="ico" data-act="close" type="button">Remove</button></div></div>`;
+  const aiMode = mode === "ai";
+  let plan = null, res;
+  NOTE = aiMode ? (t => { const el = sec.querySelector(".steps div, [data-ans] > div"); if (el) el.innerHTML = '<span class="spin"></span>' + esc(t); }) : null;
+  LASTMODEL = "";
+  if (aiMode){
+    sec.innerHTML = head("Working…") + `<div class="ans"><div class="steps"><div><span class="spin"></span>Interpreting the question and planning the search…</div></div></div>`;
+    thread.prepend(sec); sec.scrollIntoView({behavior:"smooth", block:"start"});
+    try { plan = await planStep(q); } catch(e){ plan = null; }
+    res = plan ? fusedSearch(q, plan) : search(q, sel, MAXH);
+  } else {
+    res = search(q, sel, MAXH);
+  }
+  LAST.set(id, {q, res});
+  const re = hlRe(res.info.hl);
+  const nd = new Set(res.hits.map(h => h.u.d)).size;
+  const meta = `${res.hits.length} relevant ${res.hits.length===1?"provision":"provisions"} · ${nd} ${nd===1?"document":"documents"} · searched ${sel.size} of ${DOCS.length} documents${res.info.expanded?" · abbreviations expanded":""}`;
+  let html = head(meta).replace("</h2>", plan ? `<div class="plan"><b>Understood as:</b> ${esc(plan.intent)}<br><b>Searched for:</b> ${esc(plan.queries.join(" | "))}${plan.documents.length ? `<br><b>Likely documents:</b> ${esc(plan.documents.join(", "))}` : ""}</div></h2>` : "</h2>");
+  if (!res.hits.length){
+    html += `<div class="empty"><b>Nothing relevant found in the indexed standards.</b><br>Searched ${sel.size} documents (${[...sel].join(", ")}) for: ${esc(res.info.terms.map(t=>t[0]).join(", ") || q)}.<br>Try different wording, or tick more documents. The answer will not be guessed from outside the indexed standards.</div>`;
+    sec.innerHTML = html; if (!sec.parentNode) thread.prepend(sec); return;
+  }
+  html += `<div class="band q">Relevant clauses <small>quoted word for word from the standards</small></div><div class="quotes">`;
+  html += res.hits.slice(0, SHOW).map((h,i) => clauseHtml(h, res.info, re, i)).join("");
+  html += `</div>`;
+  if (res.hits.length > SHOW) html += `<button class="btn more" type="button" data-act="more" style="margin-top:0">Show ${res.hits.length-SHOW} more clauses</button><div class="quotes" data-extra hidden style="padding-top:0">${res.hits.slice(SHOW).map((h,i) => clauseHtml(h, res.info, re, i)).join("")}</div>`;
+  html += `<div class="band a">Answer <small>${aiMode ? "reasoned from the clauses above" : "built from the clauses above"}</small></div><div class="ans" data-ans>${aiMode ? `<div><span class="spin"></span>Reasoning through the clauses…</div>` : vaultAnswer(res)}</div>`;
+  sec.innerHTML = html; if (!sec.parentNode) thread.prepend(sec); renderTex(sec);
+  sec.scrollIntoView({behavior:"smooth", block:"start"});
+  if (aiMode){
+    const box = sec.querySelector("[data-ans]");
+    try {
+      const txt = await aiAnswer(q, plan, res.hits);
+      LAST.get(id).ai = txt; HIST.push({q, a: txt});
+      const known = new Map(res.hits.slice(0,16).map(h => [cite(h.u), h.u.i]));
+      const cited = [...new Set([...txt.matchAll(LABEL_RE)].map(m => m[1]))];
+      const ok = cited.filter(c => known.has(c)), bad = cited.filter(c => !known.has(c));
+      box.innerHTML = `<div class="prose">${mdLite(txt, new Set(known.keys()))}</div>` +
+        `<div class="chk">Citation check: ${ok.length} of ${cited.length} cited clauses were verified against the clauses shown above${bad.length ? `. Not found in the supplied evidence, so treat with caution: ${esc(bad.join(", "))}` : ""}.</div>` +
+        `<div class="foot">Reasoned by ${provLabel()} from the clauses above only. Check each point against the quotation, especially numbers and shall / should wording.</div>`;
+      const usedIdx = new Set(ok.map(c => known.get(c)));
+      sec.querySelectorAll(".cl[data-i]").forEach(el => { if (usedIdx.has(+el.dataset.i)) { const sc = el.querySelector(".score"); sc.insertAdjacentHTML("beforebegin", `<span class="badge used">Used in answer</span>`); } });
+    } catch(err){
+      box.innerHTML = `<div class="warn">The AI answer could not be produced (${esc(err.message)}). Showing the clause-based answer instead.</div>` + vaultAnswer(res);
+    }
+  }
+}
+$("#go").onclick = ask;
+$("#q").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
+function copyText(t){ try { navigator.clipboard.writeText(t); } catch(e){ const a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select(); document.execCommand("copy"); a.remove(); } }
+thread.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const sec = b.closest(".resp");
+  if (b.dataset.copy) { copyText(plainQuote(U[+b.dataset.copy])); b.textContent = "Copied"; setTimeout(()=>b.textContent="Copy quote",1200); }
+  else if (b.dataset.act === "close") sec.remove();
+  else if (b.dataset.act === "more") { sec.querySelector("[data-extra]").hidden = false; b.remove(); }
+  else if (b.dataset.act === "copy") {
+    const r = LAST.get(sec.id); if (!r) return;
+    let t = "Question: " + r.q + "\n\nRELEVANT CLAUSES (verbatim)\n\n" + r.res.hits.map(h => plainQuote(h.u)).join("\n\n");
+    t += "\n\nANSWER\n\n" + (r.ai || sec.querySelector("[data-ans]").innerText);
+    copyText(t); b.textContent = "Copied"; setTimeout(()=>b.textContent="Copy all",1200);
+  }
+});
+
+/* ---------- init ---------- */
+$("#pills").innerHTML = `<span class="pill">${U.length.toLocaleString()} entries</span><span class="pill">${DOCS.length} documents</span><span class="pill">Built ${esc(DATA.meta.built)}</span>`;
+(function cover(){
+  const by = {};
+  DOCS.forEach(d => { const pre = d.code.split(" ")[0]; ((by[d.set] = by[d.set] || {})[pre] = by[d.set][pre] || []).push(d.code.split(" ")[1]); });
+  const lab = {SHW:"Specification for Highway Works", IfS:"Instructions for Specifiers", DMRB:"Design Manual for Roads and Bridges"};
+  $("#cover").innerHTML = `Covered to date (England):<div class="cover">` + ["SHW","IfS","DMRB"].filter(g => by[g]).map(g =>
+    `<span><b>${lab[g]}</b> ${Object.entries(by[g]).map(([p,n]) => p+" "+n.join(", ")).join(" · ")}</span>`).join("") + `</div>`;
+})();
+$("#restart").onclick = () => { lsDel("mchw_recent"); lsDel("mchw_mode"); location.reload(); };
+renderDocs(); renderRecent(); setMode(mode);
+if (window.matchMedia("(max-width:980px)").matches) document.querySelector("details.mobfilter").open = false;
+thread.innerHTML = `<div class="hero resp" id="hero"><h2>Ask in plain words</h2><div>Each answer starts with the exact clause wording from the standards, then explains it underneath.<br>Name a document (for example CD 109) or a clause number to narrow the search.</div></div>`;
+const _prepend = thread.prepend.bind(thread);
+thread.prepend = function(el){ const h = $("#hero"); if (h) h.remove(); _prepend(el); };
+})();
+</script>
+</body>
+</html>
